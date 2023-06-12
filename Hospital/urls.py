@@ -23,4 +23,9 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('contact/',views.contact,name='contact'),
     path('about/',views.about,name='about'),
+    path('log_in/',views.log_in,name='log_in'),
+    path('logout_admin/',views.logout_admin,name='logout_admin'),
+    path('index/',views.index,name='index'),
+    path('add_Doctor/',views.add_doctor,name='add_doctor'),
+    path('remove_Doctor/',views.remove_doctor,name='remove_doctor'),
 ]

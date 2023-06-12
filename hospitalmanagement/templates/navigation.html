@@ -14,19 +14,44 @@
           <li class="nav-item">
             <a class="nav-link" href="{%url 'about'%}">About</a>
           </li>
-          {% comment %} <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </div> {% endcomment %}
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="{%url 'contact'%}">Contact</a>
           </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout_admin'%}">logout</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                Doctor
+              
+              <div class="dropdown-menu">
+                <li><a class="dropdown-item" href="{%url 'add_doctor'%}"><h5 class="text-danger">Add_Doctor</h1></a></li> 
+                <li><a class="dropdown-item" href="{%url 'remove_doctor'%}">Remove_Doctor</a></li>
+            
+              </div> 
+            </a>
+          </li>
+          <!-- Example split danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+
+          {% else%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'log_in'%}">login</a>
+          </li>
+          {% endif %}
+
         </ul>
         {% comment %} <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

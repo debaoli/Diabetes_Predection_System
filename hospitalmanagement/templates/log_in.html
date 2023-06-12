@@ -1,0 +1,28 @@
+
+{% comment %} {% if error "NO"%}
+<script> 
+    alert("login success")
+    window.location={% url 'home'%};
+ </script>
+ {% endif %} 
+ {% if error "yes" %}
+ <script>
+    alert("invalid login")
+ </script>
+{% endif %} {% endcomment %}
+
+
+{% include 'base.html' %}
+{%include 'navigation.html'%}
+{% block content  %}
+<div class="container">
+<form method="POST">
+     {% csrf_token %}
+     <h2 class="text-center" >Admin-Login</h2>
+    <input type='text' placeholder="name" name="uname">
+    <input type='password' placeholder="password" name="pwd">
+    <input type="submit" name="submit" value="submit">
+</form>
+</div>
+{% include 'footer.html'%}
+{% endblock content%}
