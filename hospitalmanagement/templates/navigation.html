@@ -17,35 +17,30 @@
            <li class="nav-item">
             <a class="nav-link" href="{%url 'contact'%}">Contact</a>
           </li>
-          {% if request.user.is_authenticated %}
+          {% if request.user.is_staff %}
           <li class="nav-item">
             <a class="nav-link" href="{%url 'logout_admin'%}">logout</a>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                Doctor
-              
-              <div class="dropdown-menu">
-                <li><a class="dropdown-item" href="{%url 'add_doctor'%}"><h5 class="text-danger">Add_Doctor</h1></a></li> 
-                <li><a class="dropdown-item" href="{%url 'remove_doctor'%}">Remove_Doctor</a></li>
-            
-              </div> 
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Doctor
             </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'add_doctor'%}">Add_Doctor</a></li>
+              <li><a class="dropdown-item" href="{%url 'view_doctor'%}">View_Doctor</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Doctor
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'add_patient'%}">Add_Patient</a></li>
+              <li><a class="dropdown-item" href="{%url 'view_patient'%}">View_Patient</a></li>
+            </ul>
           </li>
           <!-- Example split danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-</div>
-
           {% else%}
           <li class="nav-item">
             <a class="nav-link" href="{%url 'log_in'%}">login</a>
@@ -60,3 +55,16 @@
       </div>
     </div>
   </nav>
+
+
+  {% comment %} <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+      Doctor
+    </a>
+    <div class="dropdown-menu">
+      <li><a class="dropdown-item" href="{%url 'add_doctor'%}">Add_Doctor</h1></a></li> 
+      <li><a class="dropdown-item" href="{%url 'remove_doctor'%}">Remove_Doctor</li>
+  
+    </div> 
+  </a>
+</li> {% endcomment %}

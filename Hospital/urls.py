@@ -20,12 +20,21 @@ from hospitalmanagement import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',views.home,name='home'),
+    path('',views.home,name='home'),
     path('contact/',views.contact,name='contact'),
     path('about/',views.about,name='about'),
     path('log_in/',views.log_in,name='log_in'),
     path('logout_admin/',views.logout_admin,name='logout_admin'),
     path('index/',views.index,name='index'),
     path('add_Doctor/',views.add_doctor,name='add_doctor'),
-    path('remove_Doctor/',views.remove_doctor,name='remove_doctor'),
+    path('remove_doctor/',views.remove_doctor,name='remove_doctor'),
+    path('remove_doctor/<id>/',views.remove_doctor,name='remove_doctor'),
+    path('view_doctor/',views.view_doctor,name='view_doctor'),
+    path('add_patient/',views.add_patient,name='add_patient'),
+    path('remove_patient/',views.remove_patient,name='remove_patient'),
+    path('remove_patient/<id>/',views.remove_patient,name='remove_patient'),
+    path('view_patient/',views.view_patient,name='view_patient'),
+    # path('add_appointment/',views.add_appointment,name='add_appointment'),
+    # path('remove_appointment/<id>/',views.remove_appointment,name='remove_appointment'),
+    # path('view_appointment/',views.view_appointment,name='view_appointment'),
 ]

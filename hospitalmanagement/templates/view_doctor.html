@@ -1,0 +1,32 @@
+{% comment %} {% extends 'base.html'%}
+{% block content %}
+{%include 'navigation.html'%} {% endcomment %}
+{% include 'base.html' %}
+{%include 'navigation.html'%}
+{% block content  %}
+<table class="table table-centered table-striped table-light">
+
+<tr>
+    <td>id</td>
+    <td>Name</td>
+    <td>Mobile</td>
+    <td>special</td>
+    <td>Delete</td>
+
+    
+</tr>
+{% for item in doc %}
+
+<tr> 
+     <td>{{ item.id}}</td>
+     <td>{{ item.Name}}</td>
+     <td>{{ item.mobile}}</td>
+     <td>{{ item.special}}</td>
+     <td><a href="{% url 'remove_doctor' item.id %}" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a></td>
+</tr>
+   {% endfor %}
+
+</table>   
+{% endblock content%}
+
+   

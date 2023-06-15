@@ -15,14 +15,59 @@
 {% include 'base.html' %}
 {%include 'navigation.html'%}
 {% block content  %}
-<div class="container">
-<form method="POST">
+{% comment %} <form method="POST">
+     <div class="form-group">
+
      {% csrf_token %}
      <h2 class="text-center" >Admin-Login</h2>
-    <input type='text' placeholder="name" name="uname">
-    <input type='password' placeholder="password" name="pwd">
-    <input type="submit" name="submit" value="submit">
-</form>
+     <div class="form-group">
+    <input type='text' class="form-control"placeholder="name" name="uname">
+     </div>
+     <div class="form-group">
+    <input type='password' class="form-control" placeholder="password" name="pwd">
+   </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div> {% endcomment %}
+{% comment %} </form> {% endcomment %}
+<style>
+  .makeborder{
+    border:solid blue 5px;
+     border-radius:10px;
+     padding-bottom:20px
+      {% comment %} border-radius: 5px; {% endcomment %}
+
+  }
+</style>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 ">
+    </div>
+    <div class="col-md-4 bg-light makeborder">
+<form method="POST">
+   <div class="form-group ">
+
+   {% csrf_token %}
+   <h2 class="text-center" >Admin-Login</h2>
+     <label for="uname">User Name</label>
+     <input type='text' class="form-control"placeholder="name" name="uname">
+     <small id="emailHelp" class="form-text text-muted">write proper name</small>
+   </div>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Password</label>
+     <input type="password" class="form-control" placeholder="password" name="pwd">
+   </div>
+   <div class="form-check">
+     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+     <label class="form-check-label" for="exampleCheck1">Check me out</label>
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+ </form>
 </div>
-{% include 'footer.html'%}
+ <div class="col-md-4">
+</div>
+</div>
+</div>
+ 
 {% endblock content%}
