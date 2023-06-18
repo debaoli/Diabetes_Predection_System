@@ -4,17 +4,22 @@
 {% include 'base.html' %}
 {%include 'navigation.html'%}
 {% block content  %}
-<table class="table table-centered table-striped table-light">
+<table id="example" class="table table-centered table-striped table-light">
+    <h1 class="text-danger text-center">View doctor</h1>
 
-<tr>
+
+    <thead>
+    <tr>
     <td>id</td>
     <td>Name</td>
     <td>Mobile</td>
     <td>special</td>
     <td>Delete</td>
+     </tr>
+    </thead>
 
     
-</tr>
+    <tbody>
 {% for item in doc %}
 
 <tr> 
@@ -25,6 +30,7 @@
      <td><a href="{% url 'remove_doctor' item.id %}" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a></td>
 </tr>
    {% endfor %}
+</tbody>   
 
 </table>   
 {% endblock content%}

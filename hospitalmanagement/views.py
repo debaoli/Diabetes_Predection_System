@@ -93,4 +93,33 @@ def view_patient(request):
         return redirect('log_in')
     doc=Patient.objects.all()
     return render(request,'view_patient.html',{'doc':doc})
+def add_appointment(request):
+    if not request.user.is_staff:
+        return redirect('log_in')
+    doctor=Doctor.objects.all()
+    patient=Patient.objects.all()
+    if request.method == "POST":
+        n=request.POST['doctor']
+        g=request.POST['patient']
+        m=request.POST['date']
+        a=request.POST['time']
+        doctor=Doctor.objects.filter(Name=n).first()
+        patient=Patient.objects.filter(name=g).first()
+        appointment=Appointment(Doctor=doctor,Patient=patient,date=m,time=a)
+        appointment.save()
+        return redirect('view_appointment')
+    return render(request,'add_appointment.html',{'doctor':doctor,'patient':patient})
+def remove_appointment(request,id=None):
+    if not request.user.is_staff:
+        return redirect('log_in')
+    if id is not None:
+        pk=id
+        appointment=Appointment.objects.get(id=pk)
+        appointment.delete()
+        return redirect('view_appointment')
+def view_appointment(request):
+    if not request.user.is_staff:
+        return redirect('log_in')
+    doc=Appointment.objects.all()
+    return render(request,'view_appointment.html',{'doc':doc})
    
