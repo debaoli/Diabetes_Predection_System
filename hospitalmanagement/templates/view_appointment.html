@@ -27,12 +27,13 @@
      <td>{{ item.Patient}}</td>
      <td>{{ item.date}}</td>
      <td>{{ item.time}}</td>
-     <td><a href="{% url 'remove_doctor' item.id %}" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a></td>
+     <td><a href="{% url 'remove_appointment' item.id %}" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a></td>
 </tr>
    {% endfor %}
 </tbody>   
 
 </table>   
+<button  onclick=window.location.href="{% url 'index'%}"; class="btn btn-success"> Return To Dashboard</button>
 {% endblock content%}
 
    

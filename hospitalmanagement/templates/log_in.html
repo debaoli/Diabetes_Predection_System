@@ -43,7 +43,7 @@
   <div class="row mt-5">
     <div class="col-md-4 ">
     </div>
-    <div class="col-md-4 bg-light makeborder">
+    <div class="col-md-4 bg-success makeborder">
 <form method="POST">
    <div class="form-group ">
 
@@ -68,6 +68,11 @@
  <div class="col-md-4">
 </div>
 </div>
+
+{% if error == 'yes' %}
+<div>
+  <h4 class="text-center text-danger bg-light">plz enter correct username or password"</h4>
 </div>
- 
+ {%endif%}
+</div>
 {% endblock content%}

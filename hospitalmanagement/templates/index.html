@@ -1,9 +1,57 @@
 {% extends 'base.html'%}
 {% block content %}
 {%include 'navigation.html'%}
+
+
+<style>
+ul{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  {% comment %} align-item:center; {% endcomment %}
+}
+ul li{
+  list-style:none;
+ 
+
+}
+li a{
+  text-decoration:none;
+  font-size:2 rem;
+}
+li a:hover{
+  text-color:red;
+  background-color:black;
+
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  background-color: DodgerBlue;
+}
+
+.flex-container > li {
+  background-color: #f1f1f1;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+</style>
+{% if error == 'NO' %}
 <script>
   alert("logged in successfully")
 </script>
-  <h1>This is index page</h1>
+{% endif %}
+  <h1 class="text-center mb-4">Welcome to admin Section</h1>
+  <ul>
+    <div class="flex-container">
+  <li><a href="{% url 'view_doctor'%}">View Doctor<a></li>
+  <li><a href="{% url 'view_patient'%}">View Patient<a></li>
+  <li><a href="{% url 'view_appointment'%}">View Appointment<a></li>
+    <div>
+  </ul>
   {% include 'footer.html' %}
 {% endblock content%}

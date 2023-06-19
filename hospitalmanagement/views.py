@@ -29,7 +29,9 @@ def log_in(request):
                 error="NO"
                 login(request,user)
                 print("user auth")
-                return redirect('index')
+                return render(request,'index.html',{'error':error})
+                print("done job")
+                # return render('index')
                 
             else:
                 error="yes"    

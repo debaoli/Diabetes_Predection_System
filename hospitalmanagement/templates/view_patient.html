@@ -20,13 +20,13 @@
 <tr> 
      <td>{{ item.id}}</td>
      <td>{{ item.name}}</td> 
-      <td>{{ item.gender}}</td>
-
+     <td>{{ item.gender}}</td>
      <td>{{ item.mobile}}</td>
-   
      <td>{{ item.address}}</td>
      <td><a href="{% url 'remove_patient' item.id%}" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a></td>
 </tr>
    {% endfor %}
 </tbody>
+</table>
+<button  href="{% url 'index'%}" class="btn btn-success"> Return To Dashboard</button>
    {% endblock content%}   
