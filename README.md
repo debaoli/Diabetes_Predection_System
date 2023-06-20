@@ -1,7 +1,7 @@
 # HospitalManagementSystem
 This is simple web application for hospital management system built in django
 
-**#Tech Stack:**
+## Tech Stack:
 - Python
 - Django
 - HTML
@@ -11,9 +11,9 @@ This is simple web application for hospital management system built in django
 - Sqlite 
 
 
-**#Features:**
+## Features:
 
-** For Admin:**
+  ### For Admin:
  - Login 
  - Logout
  - Add
@@ -21,7 +21,7 @@ This is simple web application for hospital management system built in django
  - Delete
  - Search
  
-** For Users:**
+  ### For Users:  
  - View Home Page
  - Contact form 
  - View Services
